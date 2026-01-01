@@ -1,0 +1,14 @@
+{
+  "journal_id": "string",
+  "items": [
+    {
+      "domain": "symptom | food | emotion | mind",
+      "evidence_span": "string",
+      "polarity": "present | absent | uncertain",
+      "intensity_bucket": "low | medium | high | unknown",
+      "arousal_bucket": "low | medium | high | unknown",
+      "time_bucket": "today | last_night | past_week | unknown",
+      "note": "string (optional)"
+    }
+  ]
+}

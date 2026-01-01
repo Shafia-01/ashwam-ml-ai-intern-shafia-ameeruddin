@@ -221,9 +221,17 @@ This section describes realistic failure modes observed in evidence-grounded ext
 - Bucket accuracy excludes comparisons involving `unknown`
 
 ---
-### CLI Usage
+## CLI Usage
 The evaluation can be run using the following command:
 ```bash
-python src/cli.py --gold data/gold.jsonl --pred data/sample_predictions.jsonl --out out/score_summary.json
+python src/cli.py --gold data/gold.jsonl --pred data/sample_predictions.jsonl --out output/score_summary.json
 ```
 This command loads gold references and predicted items, computes evaluation metrics, and writes results to disk.
+
+### Output Files
+The CLI produces the following outputs:
+- `output/score_summary.json`: aggregated per-journal evaluation metrics
+- `output/per_journal_scores.jsonl`: one JSON object per journal containing TP, FP,
+  FN, precision, recall, and F1 scores
+
+Predictions are matched to gold references by `journal_id`. Journals without predictions are evaluated with an empty predicted item set, resulting in false negatives only.
